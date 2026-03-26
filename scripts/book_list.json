@@ -1,0 +1,82 @@
+[
+  {
+    "title_zh": "原子習慣",
+    "title_ru": "Атомные привычки",
+    "author_zh": "詹姆斯．克利爾",
+    "author_ru": "Джеймс Клир",
+    "category": "self_help",
+    "cover_url": null
+  },
+  {
+    "title_zh": "快思慢想",
+    "title_ru": "Думай медленно... Решай быстро",
+    "author_zh": "丹尼爾．康納曼",
+    "author_ru": "Даниэль Канеман",
+    "category": "psychology",
+    "cover_url": null
+  },
+  {
+    "title_zh": "從零到一",
+    "title_ru": "От нуля к единице",
+    "author_zh": "彼得．提爾",
+    "author_ru": "Питер Тиль",
+    "category": "business",
+    "cover_url": null
+  },
+  {
+    "title_zh": "人類大歷史",
+    "title_ru": "Sapiens: Краткая история человечества",
+    "author_zh": "哈拉瑞",
+    "author_ru": "Юваль Ной Харари",
+    "category": "science",
+    "cover_url": null
+  },
+  {
+    "title_zh": "刻意練習",
+    "title_ru": "Пик: Секреты новой науки об экспертизе",
+    "author_zh": "乔什·考夫曼",
+    "author_ru": "Андерс Эрикссон",
+    "category": "self_help",
+    "cover_url": null
+  },
+  {
+    "title_zh": "精實創業",
+    "title_ru": "Бережливый стартап",
+    "author_zh": "艾瑞克．萊斯",
+    "author_ru": "Эрик Рис",
+    "category": "business",
+    "cover_url": null
+  },
+  {
+    "title_zh": "被討厭的勇氣",
+    "title_ru": "Смелость быть нелюбимым",
+    "author_zh": "岸見一郎、古賀史健",
+    "author_ru": "Ичиро Кишими",
+    "category": "psychology",
+    "cover_url": null
+  },
+  {
+    "title_zh": "深度工作力",
+    "title_ru": "В работу с головой",
+    "author_zh": "乔治·纽波特",
+    "author_ru": "Кэл Ньюпорт",
+    "category": "self_help",
+    "cover_url": null
+  },
+  {
+    "title_zh": "未來簡史",
+    "title_ru": "Homo Deus: Краткая история будущего",
+    "author_zh": "哈拉瑞",
+    "author_ru": "Юваль Ной Харари",
+    "category": "science",
+    "cover_url": null
+  },
+  {
+    "title_zh": "底層邏輯",
+    "title_ru": "Основы логики",
+    "author_zh": "劉潤",
+    "author_ru": "Лю Жунь",
+    "category": "business",
+    "cover_url": null
+  }
+]
