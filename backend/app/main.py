@@ -2,7 +2,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
 from app.api.books import router as books_router
@@ -45,6 +45,14 @@ if STATIC_DIR.exists() and (STATIC_DIR / "index.html").exists():
     @app.get("/{path:path}")
     async def serve_frontend(request: Request, path: str):
         file_path = STATIC_DIR / path
-        if file_path.is_file():
+        if file_path.is_file() and path.startswith("assets/"):
             return FileResponse(file_path)
-        return FileResponse(STATIC_DIR / "index.html")
+        html = (STATIC_DIR / "index.html").read_text()
+        return HTMLResponse(
+            content=html,
+            headers={
+                "Cache-Control": "no-cache, no-store, must-revalidate",
+                "Pragma": "no-cache",
+                "Expires": "0",
+            },
+        )
