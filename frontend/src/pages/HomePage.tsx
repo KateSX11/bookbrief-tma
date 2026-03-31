@@ -76,7 +76,7 @@ export default function HomePage() {
   return (
     <div className="pb-8">
       {/* Header */}
-      <header className="sticky top-0 z-20 bg-[var(--tg-theme-bg-color)]/95 backdrop-blur-sm px-5 pt-4 pb-3">
+      <header className="sticky top-0 z-20 bg-[var(--tg-theme-bg-color)] backdrop-blur-sm px-5 pt-4 pb-3">
         <div className="flex items-center justify-between">
           <h1 className="text-xl font-bold tracking-tight">BookBrief</h1>
           <button
@@ -228,7 +228,7 @@ function HeroCard({
           </div>
 
           <div className="mt-3">
-            <p className="text-[13px] leading-relaxed text-[var(--tg-theme-text-color)]/75 line-clamp-2">
+            <p className="text-[13px] leading-relaxed text-[var(--tg-theme-hint-color)] line-clamp-2">
               「{book.tagline}」
             </p>
             <div className="mt-2 flex items-center gap-1.5 text-[11px] text-[var(--tg-theme-hint-color)]">
@@ -337,7 +337,7 @@ function FeedCard({
 function CategoryTag({ category }: { category: string }) {
   const label = CATEGORY_LABELS[category] ?? category;
   return (
-    <span className="inline-block shrink-0 rounded-full bg-[var(--tg-theme-button-color)]/10 px-2 py-0.5 text-[10px] font-medium text-[var(--tg-theme-button-color)]">
+    <span className="inline-block shrink-0 rounded-full bg-[var(--tg-theme-secondary-bg-color)] px-2 py-0.5 text-[10px] font-medium text-[var(--tg-theme-button-color)]">
       {label}
     </span>
   );

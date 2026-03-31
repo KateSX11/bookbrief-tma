@@ -104,7 +104,7 @@ export default function BookDetailPage() {
                   key={i}
                   className="border-l-[3px] border-[var(--tg-theme-button-color)] pl-3.5 py-1"
                 >
-                  <p className="text-sm leading-relaxed text-[var(--tg-theme-text-color)]/80">
+                  <p className="text-sm leading-relaxed text-[var(--tg-theme-hint-color)]">
                     「{q}」
                   </p>
                 </blockquote>
@@ -125,7 +125,7 @@ export default function BookDetailPage() {
                   key={ch.index}
                   className="flex items-center gap-3 px-4 py-3.5"
                 >
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--tg-theme-button-color)]/10 text-xs font-semibold text-[var(--tg-theme-button-color)]">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--tg-theme-secondary-bg-color)] text-xs font-semibold text-[var(--tg-theme-button-color)]">
                     {ch.index}
                   </span>
                   <span className="text-sm font-medium leading-tight flex-1 line-clamp-2">
@@ -139,7 +139,7 @@ export default function BookDetailPage() {
       </div>
 
       {/* Bottom Action Buttons */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[var(--tg-theme-bg-color)]/95 backdrop-blur-sm border-t border-[var(--tg-theme-secondary-bg-color)] px-5 py-3 safe-area-bottom">
+      <div className="fixed bottom-0 left-0 right-0 bg-[var(--tg-theme-bg-color)] backdrop-blur-sm border-t border-[var(--tg-theme-secondary-bg-color)] px-5 py-3 safe-area-bottom">
         <div className="flex gap-3">
           <button
             onClick={() => navigate(`/book/${book.id}/read/1`)}

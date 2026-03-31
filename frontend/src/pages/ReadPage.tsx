@@ -61,7 +61,7 @@ export default function ReadPage() {
   return (
     <div className="pb-20">
       {/* Top bar */}
-      <div className="sticky top-0 z-10 bg-[var(--tg-theme-bg-color)]/95 backdrop-blur-sm px-5 py-3 flex items-center justify-between border-b border-[var(--tg-theme-secondary-bg-color)]">
+      <div className="sticky top-0 z-10 bg-[var(--tg-theme-bg-color)] backdrop-blur-sm px-5 py-3 flex items-center justify-between border-b border-[var(--tg-theme-secondary-bg-color)]">
         <button
           onClick={goBack}
           className="text-sm text-[var(--tg-theme-link-color)] flex items-center gap-1"
@@ -85,7 +85,7 @@ export default function ReadPage() {
       </article>
 
       {/* Bottom nav */}
-      <div className="fixed bottom-0 left-0 right-0 bg-[var(--tg-theme-bg-color)]/95 backdrop-blur-sm border-t border-[var(--tg-theme-secondary-bg-color)] px-5 py-3">
+      <div className="fixed bottom-0 left-0 right-0 bg-[var(--tg-theme-bg-color)] backdrop-blur-sm border-t border-[var(--tg-theme-secondary-bg-color)] px-5 py-3">
         <div className="flex gap-3">
           <button
             disabled={!hasPrev}
@@ -137,7 +137,7 @@ function MarkdownContent({ content }: { content: string }) {
       );
     } else if (trimmed.startsWith("- ")) {
       elements.push(
-        <li key={key++} className="text-sm leading-relaxed text-[var(--tg-theme-text-color)]/85 ml-4 list-disc">
+        <li key={key++} className="text-sm leading-relaxed text-[var(--tg-theme-text-color)] ml-4 list-disc">
           {formatInline(trimmed.slice(2))}
         </li>
       );
@@ -145,7 +145,7 @@ function MarkdownContent({ content }: { content: string }) {
       elements.push(<div key={key++} className="h-3" />);
     } else {
       elements.push(
-        <p key={key++} className="text-sm leading-[1.8] text-[var(--tg-theme-text-color)]/85">
+        <p key={key++} className="text-sm leading-[1.8] text-[var(--tg-theme-text-color)]">
           {formatInline(trimmed)}
         </p>
       );
