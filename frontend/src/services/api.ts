@@ -4,41 +4,97 @@ const client = axios.create({ baseURL: "" });
 
 export interface BookListItem {
   id: number;
-  title_zh: string;
-  title_ru: string;
-  author_zh: string;
-  author_ru: string;
-  cover_url: string | null;
+  title: string;
+  author: string;
   category: string;
-  read_time_minutes: number;
-  listen_time_minutes: number;
+  tagline: string;
+  time: number;
+  cover_url: string | null;
+  is_featured: boolean;
+  is_hot: boolean;
+  is_free: boolean;
 }
 
-export interface SummaryData {
-  key_insights: { title: string; content: string }[];
-  chapters: { title: string; content: string }[];
-  quotes: string[];
+export interface ChapterBrief {
+  index: number;
+  title: string;
+  has_audio: boolean;
 }
 
 export interface BookDetail extends BookListItem {
-  summary_zh: SummaryData | null;
-  summary_ru: SummaryData | null;
-  audio_zh_url: string | null;
-  audio_ru_url: string | null;
+  original_title?: string;
+  quotes: string[];
+  chapters: ChapterBrief[];
 }
 
-export async function fetchBooks(category?: string): Promise<BookListItem[]> {
+export interface ChapterDetail {
+  index: number;
+  title: string;
+  content: string | null;
+  audio_url: string | null;
+  total_chapters: number;
+  book_title: string;
+  book_cover_url: string | null;
+}
+
+export interface HistoryItem {
+  book_id: number;
+  book_title: string;
+  book_cover_url: string | null;
+  book_category: string;
+  last_chapter: number;
+  mode: string;
+  updated_at: string;
+}
+
+export const fetchBooks = async (category?: string): Promise<BookListItem[]> => {
   const params = category ? { category } : {};
   const { data } = await client.get<BookListItem[]>("/api/books", { params });
   return data;
-}
+};
 
-export async function fetchCategories(): Promise<string[]> {
-  const { data } = await client.get<string[]>("/api/books/categories");
+export const fetchFeatured = async (): Promise<BookListItem[]> => {
+  const { data } = await client.get<BookListItem[]>("/api/books/featured");
   return data;
-}
+};
 
-export async function fetchBook(id: number): Promise<BookDetail> {
+export const fetchHot = async (): Promise<BookListItem[]> => {
+  const { data } = await client.get<BookListItem[]>("/api/books/hot");
+  return data;
+};
+
+export const fetchBook = async (id: number): Promise<BookDetail> => {
   const { data } = await client.get<BookDetail>(`/api/books/${id}`);
   return data;
-}
+};
+
+export const fetchChapter = async (
+  bookId: number,
+  chapterIndex: number
+): Promise<ChapterDetail> => {
+  const { data } = await client.get<ChapterDetail>(
+    `/api/books/${bookId}/chapters/${chapterIndex}`
+  );
+  return data;
+};
+
+export const fetchHistory = async (tgUserId: string): Promise<HistoryItem[]> => {
+  const { data } = await client.get<HistoryItem[]>("/api/user/history", {
+    params: { tg_user_id: tgUserId },
+  });
+  return data;
+};
+
+export const saveProgress = async (
+  tgUserId: string,
+  bookId: number,
+  lastChapter: number,
+  mode: string = "read"
+) => {
+  await client.post("/api/user/history", {
+    tg_user_id: tgUserId,
+    book_id: bookId,
+    last_chapter: lastChapter,
+    mode,
+  });
+};

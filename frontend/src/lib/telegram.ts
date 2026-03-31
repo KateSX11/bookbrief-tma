@@ -9,14 +9,23 @@ declare global {
         colorScheme: "light" | "dark";
         themeParams: Record<string, string>;
         initData: string;
-        initDataUnsafe: Record<string, unknown>;
+        initDataUnsafe: {
+          user?: { id: number; first_name: string; last_name?: string };
+          [key: string]: unknown;
+        };
         setHeaderColor: (color: string) => void;
         setBackgroundColor: (color: string) => void;
         BackButton: {
           show: () => void;
           hide: () => void;
+          isVisible: boolean;
           onClick: (cb: () => void) => void;
           offClick: (cb: () => void) => void;
+        };
+        HapticFeedback: {
+          impactOccurred: (style: string) => void;
+          notificationOccurred: (type: string) => void;
+          selectionChanged: () => void;
         };
       };
     };
@@ -27,8 +36,9 @@ export function getTelegramWebApp() {
   return window.Telegram?.WebApp ?? null;
 }
 
-export function isTelegramEnvironment(): boolean {
-  return !!window.Telegram?.WebApp?.initData;
+export function getTgUserId(): string {
+  const user = window.Telegram?.WebApp?.initDataUnsafe?.user;
+  return user?.id?.toString() ?? "anonymous";
 }
 
 export function initTelegramApp() {
@@ -48,6 +58,7 @@ export function initTelegramApp() {
     button_color: "--tg-theme-button-color",
     button_text_color: "--tg-theme-button-text-color",
     secondary_bg_color: "--tg-theme-secondary-bg-color",
+    accent_text_color: "--tg-theme-accent-text-color",
   };
 
   for (const [tgKey, cssVar] of Object.entries(map)) {
