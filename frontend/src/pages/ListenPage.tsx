@@ -105,8 +105,8 @@ export default function ListenPage() {
     );
   }
 
-  const hasPrev = chapterIndex > 1;
-  const hasNext = chapterIndex < data.total_chapters;
+  const hasPrev = chapterIndex > 0;
+  const hasNext = chapterIndex < data.total_chapters - 1;
   const gradient = GRADIENTS[bookId % GRADIENTS.length];
   const hasAudio = !!data.audio_url;
 
@@ -124,7 +124,7 @@ export default function ListenPage() {
           返回
         </button>
         <span className="text-xs text-[var(--tg-theme-hint-color)]">
-          第 {chapterIndex} 章 / 共 {data.total_chapters} 章
+          {chapterIndex + 1} / {data.total_chapters}
         </span>
       </div>
 

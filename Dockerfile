@@ -13,9 +13,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY backend/ .
 COPY scripts/ /app/scripts/
+COPY content/ /app/content/
 COPY --from=frontend-builder /frontend/dist ./static
 
-RUN mkdir -p /app/data /app/media/audio
+RUN mkdir -p /app/data /app/media/audio /app/media/covers
 
 COPY start.sh /app/start.sh
 RUN chmod +x /app/start.sh

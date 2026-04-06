@@ -142,7 +142,7 @@ export default function BookDetailPage() {
       <div className="fixed bottom-0 left-0 right-0 bg-[var(--tg-theme-bg-color)] backdrop-blur-sm border-t border-[var(--tg-theme-secondary-bg-color)] px-5 py-3 safe-area-bottom">
         <div className="flex gap-3">
           <button
-            onClick={() => navigate(`/book/${book.id}/read/1`)}
+            onClick={() => navigate(`/book/${book.id}/read/${book.chapters[0]?.index ?? 0}`)}
             className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[var(--tg-theme-button-color)] py-3 text-sm font-semibold text-[var(--tg-theme-button-text-color)]"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -152,7 +152,7 @@ export default function BookDetailPage() {
             開始閱讀
           </button>
           <button
-            onClick={() => navigate(`/book/${book.id}/listen/1`)}
+            onClick={() => navigate(`/book/${book.id}/listen/${book.chapters[0]?.index ?? 0}`)}
             className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[var(--tg-theme-secondary-bg-color)] py-3 text-sm font-semibold text-[var(--tg-theme-text-color)]"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

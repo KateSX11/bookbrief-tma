@@ -55,8 +55,8 @@ export default function ReadPage() {
     );
   }
 
-  const hasPrev = chapterIndex > 1;
-  const hasNext = chapterIndex < data.total_chapters;
+  const hasPrev = chapterIndex > 0;
+  const hasNext = chapterIndex < data.total_chapters - 1;
 
   return (
     <div className="pb-20">
@@ -72,7 +72,7 @@ export default function ReadPage() {
           {data.book_title}
         </button>
         <span className="text-xs text-[var(--tg-theme-hint-color)]">
-          第 {chapterIndex} 章 / 共 {data.total_chapters} 章
+          {chapterIndex + 1} / {data.total_chapters}
         </span>
       </div>
 
